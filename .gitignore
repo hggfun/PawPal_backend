@@ -1,0 +1,13 @@
+__pycache__
+build*
+compile_commands.json
+.cache/
+.idea/
+.vscode/
+.cores/
+.ccache/
+.pgdata/
+cmake-build-*
+Testing/
+.DS_Store
+Makefile.local
