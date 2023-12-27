@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(pg_service_template CXX)
+project(UserverBackendTest CXX)
 
 # Disable userver libraries that are not needed in this project
 set(USERVER_FEATURE_MONGODB OFF CACHE BOOL "" FORCE)
