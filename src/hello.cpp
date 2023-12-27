@@ -20,7 +20,7 @@ class Hello final : public userver::server::handlers::HttpHandlerBase {
   Hello(const userver::components::ComponentConfig& config,
         const userver::components::ComponentContext& component_context)
       : HttpHandlerBase(config, component_context),
-        -_cluster_(
+        pg_cluster_(
             component_context
                 .FindComponent<userver::components::Postgres>("postgres-db-1")
                 .GetCluster()) {}
