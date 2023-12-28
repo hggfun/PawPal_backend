@@ -24,6 +24,14 @@ add_subdirectory(third_party/userver)
 add_library(${PROJECT_NAME}_objs OBJECT
     src/hello.hpp
     src/hello.cpp
+    src/views/test/test.hpp
+    src/views/test/test.cpp
+    src/views/profile/create_profile/post/view.hpp
+    src/views/profile/create_profile/post/view.cpp
+    src/views/profile/get_profile/post/view.hpp
+    src/views/profile/get_profile/post/view.cpp
+    src/controllers/profile_controllers/profile_controllers.hpp
+    src/controllers/profile_controllers/profile_controllers.cpp
 )
 target_link_libraries(${PROJECT_NAME}_objs PUBLIC userver-postgresql)
 

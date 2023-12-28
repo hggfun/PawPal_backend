@@ -7,7 +7,8 @@
 
 namespace UserverBackendTest {
 
-enum class UserType { kFirstTime, kKnown };
+enum class UserType { kNewbie, kKnown };
+
 std::string SayHelloTo(std::string_view name, UserType type);
 
 void AppendHello(userver::components::ComponentList& component_list);

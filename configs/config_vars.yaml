@@ -6,4 +6,4 @@ is-testing: false
 
 server-port: 8080
 
-dbconnection: 'postgresql://UserverBackendTest_user:password@localhost:5432/UserverBackendTest_db_1'
+dbconnection: 'host=localhost port=5432 dbname=UserverBacendTest user=postgres password=alim2003'

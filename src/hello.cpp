@@ -22,7 +22,7 @@ class Hello final : public userver::server::handlers::HttpHandlerBase {
       : HttpHandlerBase(config, component_context),
         pg_cluster_(
             component_context
-                .FindComponent<userver::components::Postgres>("postgres-db-1")
+                .FindComponent<userver::components::Postgres>("postgres-db")
                 .GetCluster()) {}
 
   std::string HandleRequestThrow(
@@ -30,7 +30,7 @@ class Hello final : public userver::server::handlers::HttpHandlerBase {
       userver::server::request::RequestContext&) const override {
     const auto& name = request.GetArg("name");
 
-    auto user_type = UserType::kFirstTime;
+    auto user_type = UserType::kNewbie;
     if (!name.empty()) {
       auto result = pg_cluster_->Execute(
           userver::storages::postgres::ClusterHostType::kMaster,
@@ -59,7 +59,7 @@ std::string SayHelloTo(std::string_view name, UserType type) {
   }
 
   switch (type) {
-    case UserType::kFirstTime:
+    case UserType::kNewbie:
       return fmt::format("Hello, {}!\n", name);
     case UserType::kKnown:
       return fmt::format("Hi again, {}!\n", name);
@@ -70,7 +70,7 @@ std::string SayHelloTo(std::string_view name, UserType type) {
 
 void AppendHello(userver::components::ComponentList& component_list) {
   component_list.Append<Hello>();
-  component_list.Append<userver::components::Postgres>("postgres-db-1");
+  component_list.Append<userver::components::Postgres>("postgres-db");
   component_list.Append<userver::clients::dns::Component>();
 }
 
