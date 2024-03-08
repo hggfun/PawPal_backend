@@ -30,6 +30,8 @@ add_library(${PROJECT_NAME}_objs OBJECT
     src/views/profile/create_profile/post/view.cpp
     src/views/profile/get_profile/post/view.hpp
     src/views/profile/get_profile/post/view.cpp
+    src/views/profile/delete_profile/post/view.hpp
+    src/views/profile/delete_profile/post/view.cpp
     src/controllers/profile_controllers/profile_controllers.hpp
     src/controllers/profile_controllers/profile_controllers.cpp
 )

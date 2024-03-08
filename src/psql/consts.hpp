@@ -21,4 +21,11 @@ const storages::postgres::Query kGetProfileSQL{
     storages::postgres::Query::Name{"get_profile"},
 };
 
+const storages::postgres::Query kDeleteProfileSQL{
+    "DELETE FROM dog_owner_app.users "
+    "WHERE phone = $1 AND password = $2 "
+    "RETURNING phone;",
+    storages::postgres::Query::Name{"delete_profile"},
+};
+
 }  // namespace UserverBackendTest

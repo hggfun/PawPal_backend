@@ -20,8 +20,7 @@ std::string InsertProfile (const userver::storages::postgres::ClusterPtr& cluste
     if (!name.empty() && !phone.empty() && !password.empty()) {
       auto result = cluster->Execute(
           userver::storages::postgres::ClusterHostType::kMaster,
-          kCreateProfileSQL,
-          name, phone, password);
+          kCreateProfileSQL, name, phone, password);
     if (!result.IsEmpty()) return "Successfuly inserted";
     } else {
         return "Not enough data";
@@ -38,6 +37,18 @@ std::string SelectProfile (const userver::storages::postgres::ClusterPtr& cluste
       return "User not found";
     }
     return profileInfo.value().name + " " + profileInfo.value().phone;
+}
+
+std::string RemoveProfile (const userver::storages::postgres::ClusterPtr& cluster, const std::string& phone, const std::string& password) {
+    if (!phone.empty() && !password.empty()) {
+      auto result = cluster->Execute(
+          userver::storages::postgres::ClusterHostType::kMaster,
+          kDeleteProfileSQL, phone, password);
+    if (!result.IsEmpty()) return "Successfuly deleted";
+    } else {
+        return "Not enough data";
+    }
+    return "Profile not found";
 }
 
 std::string ValidatePhoneNumber (const std::string& phone) {

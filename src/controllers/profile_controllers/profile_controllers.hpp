@@ -18,6 +18,8 @@ std::string InsertProfile (const userver::storages::postgres::ClusterPtr& cluste
 
 std::string SelectProfile (const userver::storages::postgres::ClusterPtr& cluster , const std::string& phone);
 
+std::string RemoveProfile (const userver::storages::postgres::ClusterPtr& cluster, const std::string& phone, const std::string& password);
+
 std::string ValidatePhoneNumber (const std::string& phone);
 
 }  // namespace UserverBackendTest

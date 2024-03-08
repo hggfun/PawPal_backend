@@ -9,6 +9,7 @@
 #include "views/test/test.hpp"
 #include "views/profile/create_profile/post/view.hpp"
 #include "views/profile/get_profile/post/view.hpp"
+#include "views/profile/delete_profile/post/view.hpp"
 
 int main(int argc, char* argv[]) {
   auto component_list = userver::components::MinimalServerComponentList()
@@ -21,6 +22,7 @@ int main(int argc, char* argv[]) {
   UserverBackendTest::AppendTest(component_list);
   UserverBackendTest::AppendCreateProfile(component_list);
   UserverBackendTest::AppendGetProfile(component_list);
+  UserverBackendTest::AppendDeleteProfile(component_list);
 
   return userver::utils::DaemonMain(argc, argv, component_list);
 }

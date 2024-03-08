@@ -5,4 +5,4 @@ logger-level: debug
 is-testing: true
 
 # UserverBackendTest_db_1 is the service name + _ + filename of the db_1.sql
-dbconnection: 'host=localhost port=5432 dbname=UserverBacendTest user=postgres password=alim2003'
+dbconnection: 'host=localhost port=5432 dbname=UserverBackendTest user=postgres password=alim2003'

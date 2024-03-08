@@ -4,6 +4,6 @@
 
 namespace UserverBackendTest {
 
-    void AppendCreateProfile (userver::components::ComponentList& component_list);
+    void AppendDeleteProfile (userver::components::ComponentList& component_list);
 
 }  // namespace UserverBackendTest

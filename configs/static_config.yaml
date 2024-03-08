@@ -70,8 +70,13 @@ components_manager:
             method: POST
             task_processor: main-task-processor
 
+        handler-delete-profile:
+            path: /delete_profile
+            method: POST
+            task_processor: main-task-processor
+
         postgres-db:
-            dbconnection: 'host=localhost port=5432 dbname=UserverBacendTest user=postgres password=alim2003'
+            dbconnection: 'host=localhost port=5432 dbname=UserverBackendTest user=postgres password=alim2003'
             blocking_task_processor: fs-task-processor
             dns_resolver: async
             sync-start: false

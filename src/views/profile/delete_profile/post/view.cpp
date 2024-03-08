@@ -14,11 +14,11 @@ namespace UserverBackendTest {
 
 namespace {
 
-  class GetProfile final : public userver::server::handlers::HttpHandlerBase {
+  class DeleteProfile final : public userver::server::handlers::HttpHandlerBase {
  public:
-  static constexpr std::string_view kName = "handler-get-profile";
+  static constexpr std::string_view kName = "handler-test";
 
-  GetProfile(const userver::components::ComponentConfig& config,
+  DeleteProfile(const userver::components::ComponentConfig& config,
         const userver::components::ComponentContext& component_context)
       : HttpHandlerBase(config, component_context),
         pg_cluster_(
@@ -29,18 +29,18 @@ namespace {
   std::string HandleRequestThrow(
       const userver::server::http::HttpRequest& request,
       userver::server::request::RequestContext&) const override {
-    const auto& phone = ValidatePhoneNumber(request.GetArg("phone")); //returns empty string for invalid number
-    if (phone.empty()) return "Incorrect phone number";
+    const auto& phone = ValidatePhoneNumber(request.GetArg("phone"));
+    const auto& password = request.GetArg("password");
 
-    return SelectProfile(pg_cluster_, phone);
+    return RemoveProfile(pg_cluster_, phone, password);
   }
   
   userver::storages::postgres::ClusterPtr pg_cluster_;
 };
 }
 
-void AppendGetProfile (userver::components::ComponentList& component_list) {
-  component_list.Append<GetProfile>();
+void AppendDeleteProfile (userver::components::ComponentList& component_list) {
+  component_list.Append<DeleteProfile>();
 }
 
 }  // namespace UserverBackendTest
