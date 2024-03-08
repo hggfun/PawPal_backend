@@ -16,7 +16,7 @@ namespace {
 
   class DeleteProfile final : public userver::server::handlers::HttpHandlerBase {
  public:
-  static constexpr std::string_view kName = "handler-test";
+  static constexpr std::string_view kName = "handler-delete-profile";
 
   DeleteProfile(const userver::components::ComponentConfig& config,
         const userver::components::ComponentContext& component_context)
