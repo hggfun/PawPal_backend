@@ -34,6 +34,24 @@ add_library(${PROJECT_NAME}_objs OBJECT
     src/views/profile/delete_profile/post/view.cpp
     src/controllers/profile_controllers/profile_controllers.hpp
     src/controllers/profile_controllers/profile_controllers.cpp
+    src/views/advertisement/create_advertisement/post/view.hpp
+    src/views/advertisement/create_advertisement/post/view.cpp
+    src/views/advertisement/read_advertisement/post/view.hpp
+    src/views/advertisement/read_advertisement/post/view.cpp
+    src/views/advertisement/delete_advertisement/post/view.hpp
+    src/views/advertisement/delete_advertisement/post/view.cpp
+    src/controllers/adv_controllers/adv_controllers.hpp
+    src/controllers/adv_controllers/adv_controllers.cpp
+    src/views/post/create_post/post/view.hpp
+    src/views/post/create_post/post/view.cpp
+    src/views/post/read_post/post/view.hpp
+    src/views/post/read_post/post/view.cpp
+    src/views/post/read_list_of_posts/post/view.hpp
+    src/views/post/read_list_of_posts/post/view.cpp
+    src/views/post/delete_post/post/view.hpp
+    src/views/post/delete_post/post/view.cpp
+    src/controllers/post_controllers/post_controllers.hpp
+    src/controllers/post_controllers/post_controllers.cpp
 )
 target_link_libraries(${PROJECT_NAME}_objs PUBLIC userver-postgresql)
 
