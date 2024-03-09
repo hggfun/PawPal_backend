@@ -17,3 +17,11 @@ CREATE TABLE IF NOT EXISTS dog_owner_app.users (
     password TEXT NOT NULL,
     rating NUMERIC(2, 1)
 );
+
+CREATE TABLE IF NOT EXISTS dog_owner_app.advertisements (
+    phone TEXT PRIMARY KEY,
+    place INTEGER NOT NULL,
+    time TIMESTAMP NOT NULL,
+    picture TEXT NOT NULL,
+    description TEXT NOT NULL
+);

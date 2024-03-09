@@ -11,6 +11,10 @@
 #include "views/profile/get_profile/post/view.hpp"
 #include "views/profile/delete_profile/post/view.hpp"
 
+#include "views/advertisement/create_advertisement/post/view.hpp"
+#include "views/advertisement/read_advertisement/post/view.hpp"
+#include "views/advertisement/delete_advertisement/post/view.hpp"
+
 int main(int argc, char* argv[]) {
   auto component_list = userver::components::MinimalServerComponentList()
                             .Append<userver::server::handlers::Ping>()
@@ -20,9 +24,14 @@ int main(int argc, char* argv[]) {
 
   UserverBackendTest::AppendHello(component_list);
   UserverBackendTest::AppendTest(component_list);
+
   UserverBackendTest::AppendCreateProfile(component_list);
   UserverBackendTest::AppendGetProfile(component_list);
   UserverBackendTest::AppendDeleteProfile(component_list);
+
+  UserverBackendTest::AppendCreateAdvertisement(component_list);
+  UserverBackendTest::AppendGetAdvertisement(component_list);
+  UserverBackendTest::AppendDeleteAdvertisement(component_list);
 
   return userver::utils::DaemonMain(argc, argv, component_list);
 }

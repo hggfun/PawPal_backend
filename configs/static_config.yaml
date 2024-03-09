@@ -75,6 +75,21 @@ components_manager:
             method: POST
             task_processor: main-task-processor
 
+        handler-create-advertisement:
+            path: /create_advertisement
+            method: POST
+            task_processor: main-task-processor
+
+        handler-get-advertisement:
+            path: /get_advertisement
+            method: POST
+            task_processor: main-task-processor
+
+        handler-delete-advertisement:
+            path: /delete_advertisement
+            method: POST
+            task_processor: main-task-processor
+
         postgres-db:
             dbconnection: 'host=localhost port=5432 dbname=UserverBackendTest user=postgres password=alim2003'
             blocking_task_processor: fs-task-processor
