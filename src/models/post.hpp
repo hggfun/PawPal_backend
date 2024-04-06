@@ -9,19 +9,17 @@
 
 namespace UserverBackendTest {
 
-struct Advertisement {
+struct Post {
     std::string phone;
-    int place;
-    int price;
-    std::time_t time;
     std::string picture;
     std::string description;
+    int likes;
+    int comments;
     }; // struct Advertisement
 
-    std::string JsonPost(const Advertisement& advertisement) {
-        return "{\n\t\"phone\": \"" + advertisement.phone + "\",\n\t\"price\": \"" + std::to_string(advertisement.price) + "\",\n\t\"place\": \"" + std::to_string(advertisement.place) + "\",\n\t\"description\": \"" + advertisement.description + "\"\n}";
+    std::string JsonPost(const Post& post) {
+        return "{\n\t\"phone\": \"" + post.phone + "\",\n\t\"picture\": \"" + post.picture + "\",\n\t\"description\": \"" + post.description + "\"\n}";
     }
-
 // TODO
 // inline::ostream& operator << (std::ostream &os, const Profile &s) {
 //     return (os << Profile.name + " " + Profile.phone);

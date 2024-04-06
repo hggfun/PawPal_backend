@@ -25,3 +25,24 @@ CREATE TABLE IF NOT EXISTS dog_owner_app.advertisements (
     picture TEXT NOT NULL,
     description TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS dog_owner_app.posts (
+    phone TEXT PRIMARY KEY,
+    picture TEXT NOT NULL,
+    text TEXT NOT NULL,
+    likes INTEGER,
+    comments INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS dog_owner_app.comments (
+    phone TEXT NOT NULL,
+    post_id TEXT NOT NULL,
+    text TEXT NOT NULL,
+    UNIQUE (phone, post_id)
+);
+
+CREATE TABLE IF NOT EXISTS dog_owner_app.likes (
+    phone TEXT NOT NULL,
+    post_id TEXT NOT NULL,
+    UNIQUE (phone, post_id)
+);
