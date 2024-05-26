@@ -1,5 +1,6 @@
 #include "view.hpp"
 #include "../../../../controllers/adv_controllers/adv_controllers.hpp"
+#include "../../../../controllers/profile_controllers/profile_controllers.hpp"
 
 #include <fmt/format.h>
 
@@ -30,6 +31,7 @@ namespace {
       const userver::server::http::HttpRequest& request,
       userver::server::request::RequestContext&) const override {
     const auto& phone = request.GetArg("phone");
+    phone = getPhoneUUID(phone);
     return SelectAdvertisement(pg_cluster_, phone);
   }
   

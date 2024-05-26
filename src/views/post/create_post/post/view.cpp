@@ -1,5 +1,6 @@
 #include "view.hpp"
 #include "../../../../controllers/post_controllers/post_controllers.hpp"
+#include "../../../../controllers/profile_controllers/profile_controllers.hpp"
 
 #include <fmt/format.h>
 #include <ctime>
@@ -31,8 +32,12 @@ namespace {
       const userver::server::http::HttpRequest& request,
       userver::server::request::RequestContext&) const override {
     const auto& phone = request.GetArg("phone");
+    phone = getPhoneUUID(phone);
     const auto& picture = request.GetArg("picture");
     const auto& text = request.GetArg("text");
+    if (checkForSQLInjection(picture) || checkForSQLInjection(text)) {
+      return "incorrect input";
+    }
     return InsertPost(pg_cluster_, phone, picture, text);
   }
   

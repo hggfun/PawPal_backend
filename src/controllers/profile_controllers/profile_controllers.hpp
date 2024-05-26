@@ -22,4 +22,6 @@ std::string RemoveProfile (const userver::storages::postgres::ClusterPtr& cluste
 
 std::string ValidatePhoneNumber (const std::string& phone);
 
+bool checkForSQLInjection(const std::string& input);
+
 }  // namespace UserverBackendTest
